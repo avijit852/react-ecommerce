@@ -87,7 +87,7 @@ const Slider = () => {
             </Arrow>
             <Wapeer slideIndex={slideIndex}>
                 {sliderItems.map((item) => {
-                    return <Slide bg={item.bg}>
+                    return <Slide bg={item.bg} key={item.id}>
                         <ImageContainer>
                             <Image src={item.img} />
                         </ImageContainer>
