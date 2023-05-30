@@ -52,6 +52,7 @@ const Icon = styled.div`
     align-items: center;
     justify-content: center;
     margin: 10px;
+    cursor: pointer;
     transition: all 0.3s ease;
     &:hover{
         background-color: #ffffff;
