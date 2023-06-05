@@ -3,11 +3,14 @@ import Navbar from "../components/Navbar"
 import Announcement from "../components/Announcement"
 import Newsletter from "../components/Newsletter"
 import Footer from "../components/Footer"
+import { Add, Remove } from "@mui/icons-material"
+import { mobile } from "../responsive"
 
 const Container = styled.div``
 const Wrapper = styled.div`
     display: flex;
     padding: 20px;
+    ${mobile({ padding:"10px", flexDirection:"column"})}
 `
 const ImageContainer = styled.div`
     flex: 1;
@@ -16,10 +19,13 @@ const Image = styled.img`
     width: 100%;
     height: 90vh;
     object-fit: cover;
+    ${mobile({ height: "40vh" })}
 `
 const InfoContainer = styled.div`
     flex: 1;
     padding: 0px 50px;
+    ${mobile({ padding: "10px" })}
+
 `
 const Title = styled.h1`
     font-weight: 200;
@@ -33,16 +39,70 @@ const Price = styled.span`
     font-size: 40px;
 `
 const FilterContainer = styled.div`
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: space-between;
-    margin-top: 15px;
+    margin: 20px 0px;
+    ${mobile({ width: "100%" })}
 `
-const Filter = styled.div``
-const FilterTitle = styled.span``
-const FilterColor = styled.div``
-const FilterSize = styled.select``
-const FilterSizeOption = styled.option``
+const Filter = styled.div`
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+`
+const FilterTitle = styled.span`
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 200;
+`
+const FilterColor = styled.div`
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: ${props => props.color};
+    margin: 0px 5px;
+    cursor: pointer;
+`
+const FilterSize = styled.select`
+    padding: 10px 20px;
+    font-size: 16px;
+`
+const FilterSizeOption = styled.option`
+    font-size: 16px;
+`
+
+const AddContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    ${mobile({ width: "100%" })}
+
+`
+const AmountContainer = styled.div`
+    display: flex;
+    align-items: center;
+`
+const Amount = styled.span`
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid teal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 5px;
+`
+const Button = styled.button`
+    border: 2px solid teal;
+    padding: 15px;
+    background-color: white;
+    cursor: pointer;
+    font-weight: 600;
+    &:hover{
+        background-color: #b9fdfd;
+    }
+`
 
 
 const Product = () => {
@@ -75,6 +135,14 @@ const Product = () => {
                             </FilterSize>
                         </Filter>
                     </FilterContainer>
+                    <AddContainer>
+                        <AmountContainer>
+                            <Remove/>
+                            <Amount>1</Amount>
+                            <Add/>
+                        </AmountContainer>
+                        <Button>ADD TO CART</Button>
+                    </AddContainer>
                 </InfoContainer>
             </Wrapper>
             <Newsletter />
